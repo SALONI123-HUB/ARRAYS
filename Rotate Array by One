@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Solution {
+  public:
+    void rotate(vector<int> &arr) {
+        int n = arr.size();
+        int i = 0, j = n - 1;
+        while(i < j) {
+            swap(arr[i], arr[j]);
+            i++;
+            j--;
+        }
+    }
+};
+
+int main() {
+    int n;
+    cout << "Enter the size of the array: ";
+    cin >> n;
+    
+    vector<int> arr(n);
+    
+    cout << "Enter the elements of the array: ";
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    cout << "Rotated array: ";
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
