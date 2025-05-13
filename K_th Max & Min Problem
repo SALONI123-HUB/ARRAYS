@@ -1,0 +1,45 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+class Solution {
+  public:
+    // Returns a pair: {kth smallest, kth largest}
+    pair<int, int> kthSmallestAndLargest(vector<int> &arr, int k) {
+        sort(arr.begin(), arr.end()); // Sort the array in ascending order
+        int n = arr.size();
+        int kth_min = arr[k - 1];     // kth smallest element (0-based index)
+        int kth_max = arr[n - k];     // kth largest element
+        return {kth_min, kth_max};    // Return both as a pair
+    }
+};
+
+int main() {
+    Solution obj;
+
+    int n, k;
+    
+    // Take input for the array size and elements
+    cout << "Enter the size of the array: ";
+    cin >> n;
+    vector<int> arr(n);
+    
+    cout << "Enter the array elements: ";
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    // Take input for the value of k
+    cout << "Enter the value of k: ";
+    cin >> k;
+
+    // Get kth smallest and largest elements
+    pair<int, int> result = obj.kthSmallestAndLargest(arr, k);
+
+    // Output the result
+    cout << "Kth smallest: " << result.first << endl;
+    cout << "Kth largest: " << result.second << endl;
+
+    return 0;
+}
