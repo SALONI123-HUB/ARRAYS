@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+#include <unordered_set>
+using namespace std;
+
+class Solution {
+  public:
+    int findUnion(vector<int>& a, vector<int>& b) {
+        unordered_set<int> unionSet;
+        for(int num : a) {
+            unionSet.insert(num);
+        }
+        for(int num : b) {
+            unionSet.insert(num);
+        }
+        return unionSet.size();
+    }
+};
+
+int main() {
+    int n, m;
+    cin >> n;
+    vector<int> a(n);
+    for(int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+
+    cin >> m;
+    vector<int> b(m);
+    for(int i = 0; i < m; i++) {
+        cin >> b[i];
+    }
+
+    Solution sol;
+    int result = sol.findUnion(a, b);
+    cout << result << endl;
+
+    return 0;
+}
