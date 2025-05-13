@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void segregateElements(vector<int>& arr) {
+    int n = arr.size();
+    vector<int> temp;
+    for(int i = 0; i < n; i++) {
+        if(arr[i] >= 0) {
+            temp.push_back(arr[i]);
+        }
+    }
+    for(int i = 0; i < n; i++) {
+        if(arr[i] < 0) {
+            temp.push_back(arr[i]);
+        }
+    }
+    for(int i = 0; i < n; i++) {
+        arr[i] = temp[i];
+    }
+}
+
+int main() {
+    vector<int> arr = {1, -2, 3, -4, -1, 5, 6};
+    segregateElements(arr);
+    for(int num : arr) {
+        cout << num << " ";
+    }
+    cout << endl;
+    return 0;
+}
